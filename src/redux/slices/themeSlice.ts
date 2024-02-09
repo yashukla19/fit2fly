@@ -2,13 +2,21 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { fetchTheme } from '../asyncActions/themeAsyncActions'
 import { DefaultTheme } from 'styled-components/dist/types'
 
-interface ThemeState {
-  currentTheme: DefaultTheme | null
+interface IThemeState {
+  currentTheme: DefaultTheme
   isFetching: boolean
 }
 
-const initialState: ThemeState = {
-  currentTheme: null,
+const defaultTheme: DefaultTheme = {
+  colors: {
+    bodyBackground: '#333',
+    bodyText: '#fff',
+    borderColorStandard: 'black'
+  },
+}
+
+const initialState: IThemeState = {
+  currentTheme: defaultTheme,
   isFetching: false,
 }
 

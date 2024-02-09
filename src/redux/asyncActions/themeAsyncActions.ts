@@ -16,7 +16,7 @@ function getRandomColor() {
 const fetchTheme = createAsyncThunk<DefaultTheme>(
   'theme/fetchTheme',
   async () => {
-    const apiPromise = new Promise((res) => {
+    const apiPromise = new Promise((res, rej) => {
       const data: DefaultTheme = {
         colors: {
           bodyBackground: `${getRandomColor()}`,
