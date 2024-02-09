@@ -4,6 +4,7 @@ interface ICustomTheme {
   colors: {
     bodyBackground: string
     bodyText: string
+    borderColorStandard: string
   }
 }
 

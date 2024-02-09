@@ -1,40 +1,43 @@
-import { ButtomSizes } from '../../constants/domConstants'
+import { border, borderRound, padding, bodyBackgroundColor, bodyTextColor, margin } from '../../styles/mixins'
+import { ButtomVariants } from '../../constants/domConstants'
 import { DefaultTheme } from 'styled-components'
 
-const buttonStyles = (theme: DefaultTheme, variant?: ButtomSizes) => {
+const buttonStyles = (theme: DefaultTheme, variant?: ButtomVariants) => {
   return `
-          background-color: ${theme.colors.bodyBackground};
-          color: ${theme.colors.bodyText};
-          margin-right: 2px;
+          ${bodyBackgroundColor(theme)}
+          ${bodyTextColor(theme)}
+          ${border(theme)}
+          ${borderRound()}
           ${variant ? getVariantPaddingStyles(variant) : ""}
+          ${margin(0, 3, 0, 0)}
           `
 }
 
-const getVariantPaddingStyles = (variant: ButtomSizes) => {
+const getVariantPaddingStyles = (variant: ButtomVariants) => {
   switch (variant) {
-    case ButtomSizes.xs:
+    case ButtomVariants.xs:
       return `
-        padding: 2px 5px;
+        ${padding(3, 5, 3, 5)}
       `
-    case ButtomSizes.s:
+    case ButtomVariants.s:
       return `
-        padding: 5px 8px;
+      ${padding(5, 8, 5, 8)}
       `
-    case ButtomSizes.m:
+    case ButtomVariants.m:
       return `
-        padding: 8px 12px;
+      ${padding(8, 12, 8, 12)}
       `
-    case ButtomSizes.l:
+    case ButtomVariants.l:
       return `
-        padding: 12px 20px;
+      ${padding(12, 15, 12, 15)}
       `
-      case ButtomSizes.xl:
-        return `
-          padding: 15px 30px;
+    case ButtomVariants.xl:
+      return `
+        ${padding(15, 18, 15, 18)}
         `
     default:
       return `
-        padding: 8px 12px;
+      ${padding(5, 8, 5, 8)}
       `
   }
 }

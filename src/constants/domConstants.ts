@@ -1,4 +1,4 @@
-enum ButtomSizes {
+enum ButtomVariants {
     xs,
     s,
     m,
@@ -6,4 +6,4 @@ enum ButtomSizes {
     xl
 }
 
-export { ButtomSizes }
+export { ButtomVariants }

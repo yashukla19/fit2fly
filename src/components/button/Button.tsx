@@ -1,11 +1,11 @@
-import { ButtomSizes } from '../../constants/domConstants'
+import { ButtomVariants } from '../../constants/domConstants'
 import { buttonStyles } from './styles'
 import { styled } from 'styled-components'
 
 type ButtonProps = {
   children?: React.ReactNode
   className?: string
-  variant?: ButtomSizes
+  variant?: ButtomVariants
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
