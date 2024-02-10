@@ -1,4 +1,11 @@
-import { border, borderRound, padding, bodyBackgroundColor, bodyTextColor, margin } from '../../styles/mixins'
+import {
+  border,
+  borderRound,
+  padding,
+  bodyBackgroundColor,
+  bodyTextColor,
+  margin,
+} from '../../styles/mixins'
 import { ButtomVariants } from '../../constants/domConstants'
 import { DefaultTheme } from 'styled-components'
 
@@ -8,7 +15,7 @@ const buttonStyles = (theme: DefaultTheme, variant?: ButtomVariants) => {
           ${bodyTextColor(theme)}
           ${border(theme)}
           ${borderRound()}
-          ${variant ? getVariantPaddingStyles(variant) : ""}
+          ${variant ? getVariantPaddingStyles(variant) : ''}
           ${margin(0, 3, 0, 0)}
           `
 }

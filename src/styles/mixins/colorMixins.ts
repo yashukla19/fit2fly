@@ -1,13 +1,13 @@
 import { DefaultTheme } from 'styled-components'
 
 const bodyBackgroundColor = (theme: DefaultTheme) => {
-    return `
+  return `
     background-color: ${theme.colors.bodyBackground};
    `
 }
 
 const bodyTextColor = (theme: DefaultTheme) => {
-    return `
+  return `
     color: ${theme.colors.bodyText};
    `
 }

@@ -11,7 +11,7 @@ const defaultTheme: DefaultTheme = {
   colors: {
     bodyBackground: '#333',
     bodyText: '#fff',
-    borderColorStandard: 'black'
+    borderColorStandard: 'black',
   },
 }
 
