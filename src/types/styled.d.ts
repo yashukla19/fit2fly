@@ -5,6 +5,8 @@ interface ICustomTheme {
     bodyBackground: string
     bodyText: string
     borderColorStandard: string
+    headerBackground: string
+    leftNavBackground: string
   }
 }
 

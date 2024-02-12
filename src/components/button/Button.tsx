@@ -8,14 +8,14 @@ type ButtonProps = {
   variant?: ButtomVariants
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
+const ButtonComponent: React.FC<ButtonProps> = (props) => {
   const { children, className } = props
 
   return <button className={className}>{children}</button>
 }
 
-const ButtonComponent = styled(Button)`
+const Button = styled(ButtonComponent)`
   ${({ theme, variant }) => buttonStyles(theme, variant)};
 `
 
-export default ButtonComponent
+export default Button

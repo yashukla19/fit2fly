@@ -22,6 +22,8 @@ const fetchTheme = createAsyncThunk<DefaultTheme>(
           bodyBackground: `${getRandomColor()}`,
           bodyText: `${getRandomColor()}`,
           borderColorStandard: `${getRandomColor()}`,
+          headerBackground: `${getRandomColor()}`,
+          leftNavBackground: `${getRandomColor()}`,
         },
       }
 

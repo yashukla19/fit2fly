@@ -1,28 +1,69 @@
 import styled from 'styled-components'
-import ButtonComponent from './components/button/Button'
 import { ThemeProvider } from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { TRootState, TAppDispatch } from './redux/store'
 import { fetchTheme } from './redux/asyncActions/themeAsyncActions'
-import { ButtomVariants } from './constants/domConstants'
-import { Link, Route, Routes } from 'react-router-dom'
-import Dashboard from './modules/Dashboard'
-import { loginUser } from './redux/asyncActions/userAsyncActions'
+import { Route, Routes } from 'react-router-dom'
+import Dashboard from './modules/Dashboard/Dashboard'
 import { AdminRoutes, PassengerRoutes } from './routes'
+import { createGlobalStyle } from 'styled-components';
 
 type AppProps = {
   children?: React.ReactNode
   className?: string
 }
 
+const GlobalStyle = createGlobalStyle`
+/* Basic CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+`;
+
 const AppComponent: React.FC<AppProps> = () => {
   const dispatch: TAppDispatch = useDispatch()
 
   const theme = useSelector((state: TRootState) => state.theme.currentTheme)
   const isFetching = useSelector((state: TRootState) => state.theme.isFetching)
-  const user = useSelector((state: TRootState) => state.user.currentUser)
-  const isFetchingUser = useSelector((state: TRootState) => state.user.isFetching)
 
   useEffect(() => {
     dispatch(fetchTheme())
@@ -33,27 +74,21 @@ const AppComponent: React.FC<AppProps> = () => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <ButtonComponent variant={ButtomVariants.xl}>click me</ButtonComponent>
-        <ButtonComponent variant={ButtomVariants.l}>click me</ButtonComponent>
-        <ButtonComponent variant={ButtomVariants.m}>click me</ButtonComponent>
-        <ButtonComponent variant={ButtomVariants.s}>click me</ButtonComponent>
-        <ButtonComponent variant={ButtomVariants.xs}>click me</ButtonComponent>
-        <button onClick={() => dispatch(fetchTheme())}>Refresh theme</button>
-        <button onClick={() => dispatch(loginUser())}>Login User</button>
-      </div>
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard userName={isFetchingUser ? 'Logging In' : user}/>} >
-          <Route path="passengers/*" element={<PassengerRoutes />} />
-          <Route path="admin/*" element={<AdminRoutes />} />
-        </Route>
-      </Routes>
-      <Link to="/dashboard">Go to Dashboard</Link>
-    </ThemeProvider>
+    <>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} >
+            <Route path="passengers/*" element={<PassengerRoutes />} />
+            <Route path="admin/*" element={<AdminRoutes />} />
+          </Route>
+        </Routes>
+      </ThemeProvider>
+    </>
   )
 }
 
-const App = styled(AppComponent)``
+const App = styled(AppComponent)`
+`
 
 export default App

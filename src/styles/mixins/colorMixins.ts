@@ -12,4 +12,16 @@ const bodyTextColor = (theme: DefaultTheme) => {
    `
 }
 
-export { bodyBackgroundColor, bodyTextColor }
+const headerBackground = (theme: DefaultTheme) => {
+  return `
+    background-color: ${theme.colors.headerBackground};
+   `
+}
+
+const leftNavBackground = (theme: DefaultTheme) => {
+  return `
+    background-color: ${theme.colors.leftNavBackground};
+   `
+}
+
+export { bodyBackgroundColor, headerBackground, leftNavBackground, bodyTextColor }

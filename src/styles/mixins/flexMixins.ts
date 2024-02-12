@@ -106,6 +106,13 @@ const alignContentSpaceAround = () => `
 const alignContentStretch = () => `
     align-content: stretch;
 `
+const flex1 = () => `
+    flex: 1;
+`
+
+const flexShrink0 = () => `
+    flex-shrink: 0;
+`
 
 export {
   flex,
@@ -134,4 +141,6 @@ export {
   alignContentSpaceBetween,
   alignContentSpaceAround,
   alignContentStretch,
+  flex1,
+  flexShrink0
 }
