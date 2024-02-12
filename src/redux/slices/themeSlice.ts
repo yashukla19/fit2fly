@@ -12,6 +12,8 @@ const defaultTheme: DefaultTheme = {
     bodyBackground: '#333',
     bodyText: '#fff',
     borderColorStandard: 'black',
+    headerBackground: `#333`,
+    leftNavBackground: `#666`,
   },
 }
 
