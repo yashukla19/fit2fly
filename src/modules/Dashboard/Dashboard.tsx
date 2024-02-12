@@ -34,7 +34,7 @@ const DashboardComponent: React.FC<DashboardProps> = () => {
         <>
             <StyledNavbar fixed="top" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="#">Dashboard</Navbar.Brand>
+                    <Navbar.Brand as={NavLink} to="/dashboard">Dashboard</Navbar.Brand>
                     <Navbar.Toggle className="d-block d-md-none" onClick={() => setIsNavExpanded(!isNavExpanded)} aria-controls="basic-navbar-nav" />
                     {isNavExpanded &&
                         <Navbar.Collapse id="basic-navbar-nav" className="d-block d-md-none">
