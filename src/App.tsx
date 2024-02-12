@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { TRootState, TAppDispatch } from './redux/store'
 import { fetchTheme } from './redux/asyncActions/themeAsyncActions'
-import { Route, Routes } from 'react-router-dom'
+import { NavLink, Route, Routes } from 'react-router-dom'
 import Dashboard from './modules/Dashboard/Dashboard'
 import { AdminRoutes, PassengerRoutes } from './routes'
 import { createGlobalStyle } from 'styled-components';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 type AppProps = {
   children?: React.ReactNode
@@ -78,6 +79,7 @@ const AppComponent: React.FC<AppProps> = () => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Routes>
+          <Route path="/" Component={() => <NavLink to="/dashboard">Dashboard</NavLink>} />
           <Route path="/dashboard" element={<Dashboard />} >
             <Route path="passengers/*" element={<PassengerRoutes />} />
             <Route path="admin/*" element={<AdminRoutes />} />

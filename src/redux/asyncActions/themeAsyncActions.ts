@@ -19,11 +19,11 @@ const fetchTheme = createAsyncThunk<DefaultTheme>(
     const apiPromise = new Promise((res) => {
       const data: DefaultTheme = {
         colors: {
-          bodyBackground: `${getRandomColor()}`,
+          bodyBackground: `#fff`,
           bodyText: `${getRandomColor()}`,
           borderColorStandard: `${getRandomColor()}`,
           headerBackground: `${getRandomColor()}`,
-          leftNavBackground: `${getRandomColor()}`,
+          leftNavBackground: `#e3e3e3`,
         },
       }
 
